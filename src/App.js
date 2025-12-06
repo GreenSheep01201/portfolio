@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TechStack from './components/TechStack';
@@ -6,8 +7,11 @@ import Section from './components/Section';
 import ProjectCard from './components/ProjectCard';
 import BlogItem from './components/BlogItem';
 import Footer from './components/Footer';
+import BlogDetail from './components/BlogDetail';
+import BlogList from './components/BlogList';
+import { blogPosts } from './data/blogPosts';
 
-function App() {
+function HomePage() {
   const projects = [
     {
       title: "생산 관리 시스템",
@@ -40,13 +44,13 @@ function App() {
     {
       title: "자재소요계획(MRP) 시스템",
       description: "생산 계획에 따른 자재 소요량을 계산하고 발주 계획을 수립하는 MRP 시스템입니다.",
-      tags: ["React", "Express", "MySQL"],
+      tags: ["React", "Express", "Tailwind CSS", "MySQL", "MSSQL"],
       github: null,
       link: null
     },
     {
       title: "OQC 측정 데이터 뷰어",
-      description: "베트남 공장의 OQC(출하품질검사) 측정 데이터를 조회하고 분석하는 뷰어입니다.",
+      description: "생산 공장의 OQC(출하품질검사) 측정 데이터를 조회하고 분석하는 뷰어입니다.",
       tags: ["React", "Express", "MySQL"],
       github: null,
       link: null
@@ -67,7 +71,7 @@ function App() {
     },
     {
       title: "Setting QR 프로그램",
-      description: "제품 설정 데이터를 QR코드로 생성하고 출력하는 데스크톱 애플리케이션입니다. MySQL과 연동하여 데이터를 관리합니다.",
+      description: "제품 양산 과정 중 시리얼 통신을 통해 설정된 데이터를 저장 및 시리얼 번호(SN)를 QR코드로 생성하고 출력하는 데스크톱 애플리케이션입니다. MySQL과 연동하여 데이터를 관리합니다.",
       tags: ["Python", "C#", "MySQL", "Tkinter"],
       github: null,
       link: null
@@ -95,27 +99,6 @@ function App() {
     }
   ];
 
-  const blogs = [
-    {
-      title: "MRP 시스템 개발기: Polyglot Persistence 패턴 적용",
-      date: "2025. 11. 25",
-      excerpt: "ERP 데이터는 MSSQL에서, 웹 애플리케이션 데이터는 MySQL에서 관리하는 Polyglot Persistence 패턴을 적용하며 배운 점을 정리합니다.",
-      link: "#"
-    },
-    {
-      title: "JWT 인증과 역할 기반 접근 제어(RBAC) 구현하기",
-      date: "2025. 11. 15",
-      excerpt: "생산 관리 시스템에서 사용자 권한을 세분화하고, JWT 토큰 기반 인증을 구현한 경험을 공유합니다.",
-      link: "#"
-    },
-    {
-      title: "BOM 역전개 알고리즘: 자재 소요량 계산의 핵심",
-      date: "2025. 11. 05",
-      excerpt: "MRP 시스템의 핵심인 BOM(Bill of Materials) 역전개 로직을 구현하며 겪었던 시행착오와 해결 과정을 기록합니다.",
-      link: "#"
-    }
-  ];
-
   return (
     <div className="App">
       <Navbar />
@@ -132,11 +115,25 @@ function App() {
 
       <Section id="blog" title="Blog" subtitle="개발 과정에서의 고민과 배움을 기록합니다." background="#e8f3ff">
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          {blogs.map((blog, index) => (
-            <BlogItem key={index} {...blog} />
+          {blogPosts.slice(0, 3).map((blog) => (
+            <BlogItem key={blog.id} {...blog} />
           ))}
           <div style={{ textAlign: 'center', marginTop: '24px' }}>
-            <a href="#" style={{ color: '#3182f6', fontWeight: 600, fontSize: '15px' }}>블로그 더보기 &rarr;</a>
+            <Link to="/blog" style={{ textDecoration: 'none' }}>
+              <span style={{
+                color: '#3182f6',
+                fontWeight: 600,
+                fontSize: '15px',
+                cursor: 'pointer',
+                padding: '12px 24px',
+                backgroundColor: '#e8f3ff',
+                borderRadius: '24px',
+                display: 'inline-block',
+                transition: 'all 0.2s ease'
+              }}>
+                총 {blogPosts.length}개의 글 보기 →
+              </span>
+            </Link>
           </div>
         </div>
       </Section>
@@ -149,12 +146,12 @@ function App() {
             함께 성장하는 것을 즐깁니다. <br />
             언제든 편하게 연락주세요.
           </p>
-          <a href="mailto:seowongil@gmail.com" style={{ 
-            backgroundColor: '#3182f6', 
-            color: 'white', 
-            padding: '16px 32px', 
-            borderRadius: '12px', 
-            fontSize: '18px', 
+          <a href="mailto:seowongil@gmail.com" style={{
+            backgroundColor: '#3182f6',
+            color: 'white',
+            padding: '16px 32px',
+            borderRadius: '12px',
+            fontSize: '18px',
             fontWeight: 700,
             display: 'inline-block'
           }}>
@@ -165,6 +162,16 @@ function App() {
 
       <Footer />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/blog" element={<BlogList />} />
+      <Route path="/blog/:id" element={<BlogDetail />} />
+    </Routes>
   );
 }
 
