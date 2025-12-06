@@ -83,7 +83,7 @@ function App() {
             새로운 도전을 좋아하고, 함께 성장하는 것을 즐깁니다. <br />
             언제든 편하게 연락주세요.
           </p>
-          <a href="mailto:email@example.com" style={{ 
+          <a href="mailto:seowongil@gmail.com" style={{ 
             backgroundColor: '#3182f6', 
             color: 'white', 
             padding: '16px 32px', 
