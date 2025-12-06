@@ -12,6 +12,17 @@ const BlogList = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // 홈의 Blog 섹션으로 이동
+  const navigateToBlogSection = () => {
+    navigate('/');
+    setTimeout(() => {
+      const blogSection = document.getElementById('blog');
+      if (blogSection) {
+        blogSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return (
     <div style={{ backgroundColor: '#f2f4f6', minHeight: '100vh' }}>
       {/* 헤더 */}
@@ -30,7 +41,7 @@ const BlogList = () => {
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <button
-            onClick={() => navigate('/')}
+            onClick={navigateToBlogSection}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -46,7 +57,7 @@ const BlogList = () => {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            홈으로
+            돌아가기
           </button>
           <div style={{ fontWeight: 700, fontSize: '18px' }}>Blog</div>
         </div>
@@ -113,7 +124,7 @@ const BlogList = () => {
           justifyContent: 'center'
         }}>
           <button
-            onClick={() => navigate('/')}
+            onClick={navigateToBlogSection}
             style={{
               padding: '16px 32px',
               backgroundColor: '#3182f6',
@@ -125,7 +136,7 @@ const BlogList = () => {
               cursor: 'pointer'
             }}
           >
-            홈으로 돌아가기
+            목록으로 돌아가기
           </button>
         </div>
       </motion.div>

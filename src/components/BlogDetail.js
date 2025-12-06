@@ -16,6 +16,17 @@ const BlogDetail = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
+  // 홈의 Blog 섹션으로 이동
+  const navigateToBlogSection = () => {
+    navigate('/');
+    setTimeout(() => {
+      const blogSection = document.getElementById('blog');
+      if (blogSection) {
+        blogSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   if (!post) {
     return (
       <div style={{
@@ -63,7 +74,7 @@ const BlogDetail = () => {
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <button
-            onClick={() => navigate('/')}
+            onClick={navigateToBlogSection}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -292,7 +303,7 @@ const BlogDetail = () => {
           justifyContent: 'center'
         }}>
           <button
-            onClick={() => navigate('/#blog')}
+            onClick={navigateToBlogSection}
             style={{
               padding: '16px 32px',
               backgroundColor: '#3182f6',
