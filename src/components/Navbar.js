@@ -25,6 +25,7 @@ const Navbar = () => {
         <div style={{ fontWeight: 700, fontSize: '18px' }}>Portfolio</div>
         <div style={{ display: 'flex', gap: '20px', fontSize: '15px', fontWeight: 500, color: '#4e5968' }}>
           <a href="#about">About</a>
+          <a href="#skills">Tech Stack</a>
           <a href="#projects">Projects</a>
           <a href="#blog">Blog</a>
           <a href="#contact">Contact</a>

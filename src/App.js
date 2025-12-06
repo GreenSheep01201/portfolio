@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import TechStack from './components/TechStack';
 import Section from './components/Section';
 import ProjectCard from './components/ProjectCard';
 import BlogItem from './components/BlogItem';
@@ -56,7 +57,8 @@ function App() {
     <div className="App">
       <Navbar />
       <Hero />
-      
+      <TechStack />
+
       <Section id="projects" title="Projects" subtitle="문제를 해결하기 위해 만들었던 프로젝트들입니다.">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
           {projects.map((project, index) => (
@@ -80,7 +82,8 @@ function App() {
         <div style={{ backgroundColor: 'white', padding: '40px', borderRadius: '24px', boxShadow: 'var(--toss-shadow)', textAlign: 'center' }}>
           <h3 style={{ fontSize: '24px', marginBottom: '16px' }}>함께 일하고 싶으신가요?</h3>
           <p style={{ color: '#4e5968', marginBottom: '32px' }}>
-            새로운 도전을 좋아하고, 함께 성장하는 것을 즐깁니다. <br />
+            새로운 도전을 좋아하고, <br />
+            함께 성장하는 것을 즐깁니다. <br />
             언제든 편하게 연락주세요.
           </p>
           <a href="mailto:seowongil@gmail.com" style={{ 

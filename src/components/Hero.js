@@ -36,7 +36,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="about" className="container" style={{ paddingTop: '160px', paddingBottom: '100px', minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+    <section id="about" className="container" style={{ paddingTop: '60px', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -82,7 +82,7 @@ const Hero = () => {
             opacity: { duration: 0.3 }
           }}
           style={{ textAlign: 'center', cursor: 'pointer', pointerEvents: isScrolled ? 'none' : 'auto' }}
-          onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })}
         >
           <span style={{ fontSize: '14px', color: '#8b95a1', display: 'block', marginBottom: '8px' }}>
             아래로 스크롤
