@@ -1,6 +1,6 @@
 # 서원길 포트폴리오
 
-풀스택 개발자 서원길의 포트폴리오 웹사이트입니다.
+포트폴리오 웹사이트입니다.
 
 🔗 **Live Demo**: [https://GreenSheep01201.github.io/portfolio](https://GreenSheep01201.github.io/portfolio)
 
