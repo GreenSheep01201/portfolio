@@ -10,45 +10,108 @@ import Footer from './components/Footer';
 function App() {
   const projects = [
     {
-      title: "Toy Project 1: Smart To-Do",
-      description: "단순한 할 일 관리가 아닌, AI가 우선순위를 추천해주는 똑똑한 투두리스트입니다. 사용자의 행동 패턴을 분석하여 최적의 시간을 제안합니다.",
-      tags: ["React", "TypeScript", "OpenAI API"],
-      github: "https://github.com",
-      link: "https://example.com"
-    },
-    {
-      title: "Toy Project 2: Weather Mood",
-      description: "날씨에 따라 어울리는 음악과 글귀를 추천해주는 감성 큐레이션 서비스입니다. 공공데이터 포털의 날씨 API를 활용했습니다.",
-      tags: ["React", "Styled-components", "Spotify API"],
-      github: "https://github.com",
+      title: "생산 관리 시스템",
+      description: "모델별 공정 관리 및 작업자 할당을 위한 생산 관리 시스템입니다. JWT 기반 인증과 역할 기반 접근 제어(RBAC)를 구현했습니다.",
+      tags: ["React", "TypeScript", "Express", "MySQL"],
+      github: null,
       link: null
     },
     {
-      title: "Portfolio v1",
-      description: "현재 보고 계신 포트폴리오 사이트입니다. Toss의 디자인 시스템을 벤치마킹하여 깔끔하고 직관적인 UX를 구현했습니다.",
-      tags: ["React", "Framer Motion"],
-      github: "https://github.com",
-      link: "https://example.com"
+      title: "BIN 데이터 관리 시스템",
+      description: "Location 별 BIN 데이터를 관리하고 QR코드 스캔을 통한 위치 이동 및 이력 추적 기능을 제공하는 재고 관리 시스템입니다.",
+      tags: ["React", "Tailwind CSS", "Express", "MySQL", "MSSQL"],
+      github: null,
+      link: null
+    },
+    {
+      title: "온습도 모니터링 대시보드",
+      description: "Raspberry Pi와 온습도 센서로 데이터를 수집하고, Node-RED를 통해 서버로 전송하여 실시간 시각화하는 대시보드입니다. 임계값 초과 시 알림 기능을 제공합니다.",
+      tags: ["React", "TypeScript", "Express", "MySQL", "Raspberry Pi", "Node-RED"],
+      github: null,
+      link: null
+    },
+    {
+      title: "설비 일일점검 시스템",
+      description: "설비의 일일 점검 항목을 관리하고 점검 이력을 기록하는 웹 애플리케이션입니다.",
+      tags: ["React", "Express", "MySQL"],
+      github: null,
+      link: null
+    },
+    {
+      title: "자재소요계획(MRP) 시스템",
+      description: "생산 계획에 따른 자재 소요량을 계산하고 발주 계획을 수립하는 MRP 시스템입니다.",
+      tags: ["React", "Express", "MySQL"],
+      github: null,
+      link: null
+    },
+    {
+      title: "OQC 측정 데이터 뷰어",
+      description: "베트남 공장의 OQC(출하품질검사) 측정 데이터를 조회하고 분석하는 뷰어입니다.",
+      tags: ["React", "Express", "MySQL"],
+      github: null,
+      link: null
+    },
+    {
+      title: "YOLO 기반 포장 검사 시스템",
+      description: "YOLO 객체 탐지 모델을 활용하여 제품 포장 상태를 실시간으로 검사하는 비전 시스템입니다.",
+      tags: ["Python", "YOLO", "OpenCV", "Tkinter"],
+      github: null,
+      link: null
+    },
+    {
+      title: "영상 내 인원 추적 시스템",
+      description: "YOLO와 OpenCV를 활용하여 영상 속 사람 수를 카운팅하고 동선을 추적하는 AI 비전 프로젝트입니다.",
+      tags: ["Python", "YOLO", "OpenCV"],
+      github: null,
+      link: null
+    },
+    {
+      title: "Setting QR 프로그램",
+      description: "제품 설정 데이터를 QR코드로 생성하고 출력하는 데스크톱 애플리케이션입니다. MySQL과 연동하여 데이터를 관리합니다.",
+      tags: ["Python", "C#", "MySQL", "Tkinter"],
+      github: null,
+      link: null
+    },
+    {
+      title: "IT 자산관리 시스템",
+      description: "회사 내 IT 자산(PC, 모니터, 소프트웨어 등)을 등록하고 관리하는 웹 애플리케이션입니다.",
+      tags: ["React", "Express", "Python", "MySQL"],
+      github: null,
+      link: null
+    },
+    {
+      title: "AI 사진 편집기",
+      description: "AI 기술을 활용한 사진 편집 도구입니다. 배경 제거, 이미지 보정 등의 기능을 제공합니다.",
+      tags: ["React", "Python", "AI"],
+      github: null,
+      link: null
+    },
+    {
+      title: "이미지 검증 시스템",
+      description: "제품 이미지의 품질을 검증하고 불량 여부를 판단하는 시스템입니다.",
+      tags: ["React", "Express", "Python"],
+      github: null,
+      link: null
     }
   ];
 
   const blogs = [
     {
-      title: "React 프로젝트 구조 잡기 (feat. Atomic Design)",
-      date: "2025. 11. 20",
-      excerpt: "프로젝트 초기 설정 단계에서 컴포넌트 구조를 어떻게 잡아야 효율적인지 고민했던 과정을 기록합니다.",
+      title: "MRP 시스템 개발기: Polyglot Persistence 패턴 적용",
+      date: "2025. 11. 25",
+      excerpt: "ERP 데이터는 MSSQL에서, 웹 애플리케이션 데이터는 MySQL에서 관리하는 Polyglot Persistence 패턴을 적용하며 배운 점을 정리합니다.",
       link: "#"
     },
     {
-      title: "프론트엔드 성능 최적화: 렌더링 줄이기",
-      date: "2025. 11. 10",
-      excerpt: "불필요한 리렌더링을 방지하기 위해 useMemo와 useCallback을 적용하여 성능을 30% 향상시킨 경험을 공유합니다.",
+      title: "JWT 인증과 역할 기반 접근 제어(RBAC) 구현하기",
+      date: "2025. 11. 15",
+      excerpt: "생산 관리 시스템에서 사용자 권한을 세분화하고, JWT 토큰 기반 인증을 구현한 경험을 공유합니다.",
       link: "#"
     },
     {
-      title: "10월 회고: 꾸준함의 힘",
-      date: "2025. 11. 01",
-      excerpt: "한 달 동안 1일 1커밋을 실천하며 느꼈던 점과 앞으로의 학습 방향에 대해 정리해 보았습니다.",
+      title: "BOM 역전개 알고리즘: 자재 소요량 계산의 핵심",
+      date: "2025. 11. 05",
+      excerpt: "MRP 시스템의 핵심인 BOM(Bill of Materials) 역전개 로직을 구현하며 겪었던 시행착오와 해결 과정을 기록합니다.",
       link: "#"
     }
   ];
