@@ -150,7 +150,9 @@ const BlogDetail = () => {
           backgroundColor: 'white',
           padding: '48px',
           borderRadius: '24px',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.04)'
+          boxShadow: '0 4px 20px rgba(0,0,0,0.04)',
+          overflow: 'hidden',
+          wordBreak: 'break-word'
         }}>
           <ReactMarkdown
             components={{
@@ -284,7 +286,9 @@ const BlogDetail = () => {
                     padding: '2px 6px',
                     borderRadius: '4px',
                     fontSize: '14px',
-                    color: '#e74c3c'
+                    color: '#e74c3c',
+                    wordBreak: 'break-word',
+                    overflowWrap: 'break-word'
                   }} {...props}>
                     {children}
                   </code>
